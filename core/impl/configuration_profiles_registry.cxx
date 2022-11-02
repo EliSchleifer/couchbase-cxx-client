@@ -48,14 +48,14 @@ configuration_profiles_registry::apply_profile(const std::string& name, couchbas
     std::shared_ptr<configuration_profile> profile;
     if (name.empty()) {
         return;
-    } else {
-        std::scoped_lock lock(registry::store_mutex);
-        if (auto it = registry::store.find(name); it == registry::store.end()) {
-            return;
-        } else if (it->second != nullptr) {
-            profile = it->second;
-            profile->apply(options);
-        }
+    }
+
+    std::scoped_lock lock(registry::store_mutex);
+    if (auto it = registry::store.find(name); it == registry::store.end()) {
+        return;
+    } else if (it->second != nullptr) {
+        profile = it->second;
+        profile->apply(options);
     }
 }
 } // namespace couchbase

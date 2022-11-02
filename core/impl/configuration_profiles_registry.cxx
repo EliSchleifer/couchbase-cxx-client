@@ -57,7 +57,5 @@ configuration_profiles_registry::apply_profile(const std::string& name, couchbas
             profile->apply(options);
         }
     }
-
-    // profile->apply(options);
 }
 } // namespace couchbase

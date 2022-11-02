@@ -54,9 +54,10 @@ configuration_profiles_registry::apply_profile(const std::string& name, couchbas
             return;
         } else if (it->second != nullptr) {
             profile = it->second;
+            profile->apply(options);
         }
     }
 
-    profile->apply(options);
+    // profile->apply(options);
 }
 } // namespace couchbase

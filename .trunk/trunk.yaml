@@ -1,0 +1,29 @@
+version: 0.1
+cli:
+  version: 1.0.2-beta.6
+plugins:
+  sources:
+    - id: trunk
+      ref: v0.0.5
+      uri: https://github.com/trunk-io/plugins
+lint:
+  enabled:
+    - git-diff-check
+    - clang-tidy@14.0.0
+    - markdownlint@0.32.2
+    - shellcheck@0.8.0
+    - shfmt@3.5.0
+    - actionlint@1.6.22
+    - gitleaks@8.15.0
+    - clang-format@14.0.0
+    - prettier@2.7.1
+runtimes:
+  enabled:
+    - go@1.18.3
+    - node@16.14.2
+actions:
+  enabled:
+    - trunk-announce
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit
+    - trunk-upgrade-available
